@@ -3,7 +3,11 @@ import {FiSearch} from 'react-icons/fi'
 import './styles.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [input, setInput] = useState('')
+
+  function handleSearch() {
+    alert("Valor do input " + input)
+  }
 
   return (
     <div className="container">
@@ -13,8 +17,10 @@ function App() {
         <input 
         type="text"
         placeholder='Digite seu CEP...'
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
          />
-         <button className='buttonSearch'>
+         <button className='buttonSearch' onClick={handleSearch}>
            <FiSearch size={25} color="#000" />
          </button>
          </div>
