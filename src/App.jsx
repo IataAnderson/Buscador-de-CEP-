@@ -1,17 +1,36 @@
 import { useState } from 'react'
 import {FiSearch} from 'react-icons/fi'
+import Api from './services/Api.jsx';
 import './styles.css';
 
 function App() {
   const [input, setInput] = useState('')
+  const [cep, setCep] = useState({});
 
-  function handleSearch() {
-    alert("Valor do input " + input)
+  async function handleSearch() {
+    //22451041/json/
+    
+    if(input === ''){
+      alert("Preencha algum cep!")
+      return;
+    }
+    try{
+      const response = await Api.get(`${input}/json`);
+      setCep(response.data)
+      setInput("")
+
+    }catch{
+      alert("Ops erro ao buscar...")
+      setInput("")
+      
+
+    }
+
   }
 
   return (
     <div className="container">
-      <h1 className='title'>Buscador CEP</h1>
+      <h1 className='title'>Buscador de CEP</h1>
 
       <div className='containerInput'>
         <input 
@@ -24,14 +43,19 @@ function App() {
            <FiSearch size={25} color="#000" />
          </button>
          </div>
-      <main className='main'>
-        <h2>CEP: 22451062</h2>
+         {/* Acessando a useStates e verificando se tem alguma propriedade dentro do objeto*/}
+         {/*length é o tamanho do objeto, se o objeto for maior que 0 é pq tem algo e o main aparece*/}
+        {Object.keys(cep).length > 0 && (
+          <main className='main'>
+          <h2>CEP: {cep.cep}</h2>  
+          <span>Logradouro:{cep.logradouro}</span>
+          <span>Complemento: {cep.complemento}</span>
+          <span>Bairro:{cep.bairro}</span>
+          <span>Cidade:{cep.localidade} - {cep.uf}</span>
+        </main>
 
-        <span>Rua</span>
-        <span>Complemento</span>
-        <span>Rocinha</span>
-        <span>Rio de Janeiro - RJ</span>
-      </main>
+        )} 
+      
     </div>
   )
 }
