@@ -1,3 +1,4 @@
+/*Aplicando reset no css global - zerando tudo que o navegador tem por padrão*/
 *{
   margin: 0;
   padding: 0;

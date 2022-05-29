@@ -12,10 +12,15 @@
     color: aliceblue;
     animation: fliptitle 2s;
 }
+.iconeReact:hover{
+    transform: scale(1.5);
+    
+}
 
 @keyframes fliptitle {
     from{
         transform: rotateX(90deg);
+        
     }
 to{
     transform: rotateX(0deg);

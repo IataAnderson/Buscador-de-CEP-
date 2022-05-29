@@ -2,6 +2,7 @@ import { useState } from 'react'
 import {FiSearch} from 'react-icons/fi'
 import Api from './services/Api.jsx';
 import './styles.css';
+import {FaReact} from 'react-icons/fa'
 
 function App() {
   const [input, setInput] = useState('')
@@ -30,8 +31,12 @@ function App() {
 
   return (
     <div className="container">
-      <h1 className='title'>Buscador de CEP</h1>
-
+      <h1 className='title'>Buscador de CEP
+      {/*---- Inserindo icone com a lib "react-icons"---------------*/}
+       <FaReact className='iconeReact' size={80} color="#000" />
+       </h1>
+       
+{/*-------------Criando DIV do input--------------*/}
       <div className='containerInput'>
         <input 
         type="text"
@@ -39,6 +44,7 @@ function App() {
         value={input}
         onChange={(e) => setInput(e.target.value)}
          />
+         {/*------------------Criando botão---------------*/}
          <button className='buttonSearch' onClick={handleSearch}>
            <FiSearch size={25} color="#000" />
          </button>
