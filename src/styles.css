@@ -78,7 +78,7 @@ border-radius: 8px;
     margin-bottom: 16px;
     font-weight: bold;
 }
-
+/*---Quando a resolução chegar a no máximo 620pixels outro estilo será aplicado-- (RESPONSIVIDADE) */
 @media (max-width: 620px){
     .title{
         font-size: 60px;

@@ -5,6 +5,9 @@ import './styles.css';
 import {FaReact} from 'react-icons/fa'
 
 function App() {
+  /*Dentro da const ta o nome do nosso estado = input, depois setInput é a função que a gente tem
+  para trocar o valor do estado*/
+  /* input chama o valor do estado, setInput passa um valor novo para o estado*/
   const [input, setInput] = useState('')
   const [cep, setCep] = useState({});
 
